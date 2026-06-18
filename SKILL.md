@@ -47,7 +47,10 @@ When multiple agents (or humans) work on the same project, **the project must do
 - **pitfalls.md** upgraded — Four-part free-text format (Problem → Root Cause → Fix → Prevention), no longer limited by table cells
 - **work_log.md** upgraded — Structured logs with title sections + detailed entries, easier to read at a glance
 - **standards.md** upgraded — Let projects define their own specific rules; templates only provide framework principles
-- **ENTRY.md** simplified — PREFLIGHT warning is optional (kept only when PREFLIGHT.md exists)
+- **+report.md** — New standard file for project status summaries
+- **pitfalls.md** upgraded — Four-part free-text format (Problem → Root Cause → Fix → Prevention), no longer limited by table cells
+- **work_log.md** upgraded — Structured logs with title sections + detailed entries, easier to read at a glance
+- **standards.md** upgraded — Let projects define their own specific rules; templates only provide framework principles
 - **Init steps updated** — report.md generation, new work_log/pitfalls templates
 
 ---
@@ -85,7 +88,10 @@ When multiple agents (or humans) work on the same project, **the project must do
 - **pitfalls.md 升级** — 四段式自由文本（问题→根因→解决→预防），表格装不下复杂的根因分析
 - **work_log.md 升级** — 结构化日志，按天/模块分类加标题，一眼看到重点
 - **standards.md 升级** — 只写框架原则，具体规则让项目自己填充
-- **ENTRY.md 简化** — PREFLIGHT 警告改为可选（只有有 PREFLIGHT.md 时才加）
+- **+report.md** — 新增标配，项目全局状态一目了然
+- **pitfalls.md 升级** — 四段式自由文本（问题→根因→解决→预防），表格装不下复杂的根因分析
+- **work_log.md 升级** — 结构化日志，按天/模块分类加标题，一眼看到重点
+- **standards.md 升级** — 只写框架原则，具体规则让项目自己填充
 - **初始化步骤同步** — 更新生成命令和模板引用
 
 ---
@@ -98,7 +104,6 @@ When multiple agents (or humans) work on the same project, **the project must do
 # ENTRY.md — 接入守则 / Onboarding Guide
 
 > ⚠️ **动手前先读 PREFLIGHT.md** — Read PREFLIGHT.md before modifying any code.
-> （如果工程没有 PREFLIGHT.md，去掉这行）
 
 ## 这是什么 / About
 
@@ -466,13 +471,16 @@ Write PREFLIGHT.md into project root. This is the **hard gate** — any agent en
 
 Use the PREFLIGHT template above.
 
-## Step 5: Add PREFLIGHT Warning to ENTRY.md (conditional)
+## Step 5: Add PREFLIGHT Warning to ENTRY.md
 
-If PREFLIGHT.md exists, insert this line right below the ENTRY.md title. Otherwise **skip this step**.
+Insert this line right below the ENTRY.md title:
 
 ```markdown
 > ⚠️ **动手前先读 PREFLIGHT.md** — Read PREFLIGHT.md before modifying any code.
 ```
+
+> PREFLIGHT.md 是强制的。有这个入口警告，任何 Agent 进项目必须完成 4 文件检查才能动代码。
+> PREFLIGHT.md is mandatory. This entry warning ensures every agent completes the 4-file check before touching code.
 
 ## Step 6: Configure Current Agent's SOUL.md and AGENTS.md
 
@@ -588,7 +596,7 @@ Start a new session and confirm the operation rules are visible in `SOUL.md`.
 
 1. **Universal rule #1** — Enter any project → find ENTRY.md or README.md first
 2. **Hard gate** — PREFLIGHT.md in project root, any agent must check in before coding
-3. **Red flag in ENTRY.md** — Warning at the top, pointing to PREFLIGHT.md (only if PREFLIGHT.md exists)
+3. **Red flag in ENTRY.md** — Warning at the top, pointing to PREFLIGHT.md（强制必有）
 4. **Agent self-config** — Write operation rules into own SOUL.md, loaded on every session start
 5. **Main agent extra** — Also write into AGENTS.md
 6. **Read first** — ENTRY.md is the first stop for newcomers
