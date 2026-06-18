@@ -1,7 +1,7 @@
 ---
 name: project-config-agent-collab-skill
-description: GitHub 项目初始化与多Agent协同规范工具。自动生成7份标配文件体系（ENTRY/PREFLIGHT/work_log/tasks/pitfalls/standards/report），自动注入PREFLIGHT打卡锁。执行初始化的Agent自动在SOUL.md写入工程操作守则，确保每次启动自带提醒。v1.2新增report.md标配、四段式pitfalls、结构化work_log。支持中英双语。 / Standardized project init & multi-agent collaboration system. Generates 7 standard docs (ENTRY/PREFLIGHT/work_log/tasks/pitfalls/standards/report), auto-injects PREFLIGHT gate check, and self-configures agent SOUL.md with operation rules. v1.2 adds report.md as standard, four-part pitfalls format, structured work_log. EN+CN bilingual.
-version: 1.2.0
+description: GitHub 项目初始化与多Agent协同规范工具。自动生成7份标配文件体系（ENTRY/PREFLIGHT/work_log/tasks/pitfalls/standards/report），自动注入PREFLIGHT打卡锁。执行初始化的Agent自动在SOUL.md写入工程操作守则，确保每次启动自带提醒。v1.3新增'缺则创建'规则，Agent进入工程时主动检测并创建缺失的7文件体系。支持中英双语。 / Standardized project init & multi-agent collaboration system. Generates 7 standard docs (ENTRY/PREFLIGHT/work_log/tasks/pitfalls/standards/report), auto-injects PREFLIGHT gate check, and self-configures agent SOUL.md with operation rules. v1.3 adds 'create-if-missing' rule — agent actively creates the 7-file system when entering a project without it. EN+CN bilingual.
+version: 1.3.0
 author: Hermes, Lao Zhao
 platforms: [macos, linux, windows]
 tags: [project-config, agent-collaboration, documentation, engineering-standards, 项目配置, Agent协同, 工程模板]
