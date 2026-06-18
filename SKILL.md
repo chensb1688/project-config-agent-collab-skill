@@ -7,304 +7,218 @@ platforms: [macos, linux, windows]
 tags: [project-config, agent-collaboration, documentation, engineering-standards, 项目配置, Agent协同, 工程模板]
 ---
 
-# Project Config — Agent Collab Skill
+# SOUL.md 强制守则
 
-> A standardized way to onboard agents and humans into any project.  
-> Every project documents itself, so nobody has to ask "what's going on here?"
+## 每个 Agent 的 SOUL.md 必须包含
+
+```markdown
+## 工程新建与参与守则
+
+新建项目或参与任何项目时，必须先检查根目录是否存在以下 7 个标配文件：
+- ENTRY.md
+- work_log.md
+- pitfalls.md
+- tasks.md
+- standards.md
+- report.md
+- README.md
+
+缺少任何文件 → 立即创建，不得跳过。
+```
+
+## 检查方法
+
+进入项目根目录后：
+
+```bash
+ls ENTRY.md work_log.md pitfalls.md tasks.md standards.md report.md README.md
+```
+
+缺失项立即创建，不等待、不询问。
 
 ---
 
-## The 7 Standard Files
+# 7 文件模板
 
-```
-project-root/
-├── ENTRY.md       ← Onboarding — first stop for newcomers
-├── PREFLIGHT.md   ← ⚠️ Must-read before touching any code
-├── work_log.md    ← Work log — who did what, when
-├── tasks.md       ← Task list — todo / in-progress / done
-├── pitfalls.md    ← Pitfalls — root cause + fix + prevention
-├── standards.md   ← Project-specific operation rules
-└── report.md      ← Project overview — progress, headcount, tech debt (optional)
-```
-
-### Why
-
-- **ENTRY.md** — what is this project, where are we, where to look
-- **PREFLIGHT.md** — hard gate: must be checked before modifying code
-- **work_log.md** — progress log without reading chat history
-- **tasks.md** — pending, done, and blocked items
-- **pitfalls.md** — don't repeat the same mistakes
-- **standards.md** — consistent operations across agents
-- **report.md** — quick status snapshot (optional for small projects)
-
----
-
-## Templates
-
-### 1. ENTRY.md
+## 1. ENTRY.md — 接入手则
 
 ```markdown
-# ENTRY.md — Onboarding Guide
+# {项目名} — 接入手则
 
-> ⚠️ Read PREFLIGHT.md before modifying any code.
+## 项目描述
+{一句话描述}
 
-## About
+## 快速导航
+| 文件 | 用途 |
+|------|------|
+| work_log.md | 工作记录 |
+| tasks.md | 当前任务 |
+| pitfalls.md | 踩坑记录 |
+| standards.md | 操作规范 |
+| report.md | 项目报告 |
 
-{one-line project description}
+## 当前状态
+{最近做了什么，待做什么}
 
-## Quick Nav
-
-| You Want | See |
-|----------|-----|
-| Progress | `work_log.md` |
-| Tasks | `tasks.md` |
-| Pitfalls | `pitfalls.md` |
-| Standards | `standards.md` |
-| Report | `report.md` |
-| Structure | `README.md` |
-
-## Rules
-
-1. Read work_log.md and tasks.md first
-2. Update work_log.md after every step
-3. Follow standards.md
-
-## Status
-
-| Module | Progress | Status |
-|--------|:--------:|:------:|
-| {module} | {xx%} | ✅ / 🔄 / ⚠️ |
-
-## Contacts
-
-- {name} — {role}
+## 三条规矩
+1. 遇坑必记 — pitfalls.md
+2. 做了就记 — work_log.md
+3. 数据库不清除不删改
 ```
 
-### 2. PREFLIGHT.md
+## 2. README.md — 工程概述
 
 ```markdown
-# ⚠️ Must-Read Before Action
+# {项目名}
 
-**Read these files in order:**
+## 目录结构
+{树形目录}
 
-| # | File | Why |
-|---|------|-----|
-| 1 | ENTRY.md | Project overview |
-| 2 | work_log.md | Recent progress |
-| 3 | tasks.md | Current tasks |
-| 4 | standards.md | Operation rules |
+## 架构
+{架构描述}
 
-**Reply: `✅ PREFLIGHT COMPLETE`**
-
-## After Modifications
-
-- Update work_log.md
-- Update tasks.md
-- Log new pitfalls in pitfalls.md
+## 快速开始
+{启动命令}
 ```
 
-### 3. work_log.md
+## 3. work_log.md — 工作记录
 
 ```markdown
-# Work Log
+# {项目名} — 工作记录
 
-### {YYYY-MM-DD} | {Author} | {Category}
-
-{what was done}
-
-- ✅ / ⚠️ / ❌ {result}
-- **Scope**: {files / modules}
-- **Notes**: {blockers, next steps}
+## YYYY-MM-DD | 执行人 | 做了什么
+- ✅/⚠️/❌ 结果
 ```
 
-### 4. tasks.md
+## 4. tasks.md — 任务清单
 
 ```markdown
-# Task List
+# {项目名} — 任务清单
 
-> **If conditions are met, execute directly. Don't wait for approval.**
+## 待办
+- [ ] 任务
 
-### Task {N}: {Title}
+## 进行中
+- [ ] 任务
 
-**Status**: ⏳ Todo / 🔄 In Progress / ✅ Done / ❌ Cancelled
-**Priority**: P0(Urgent) / P1(Important) / P2(Normal)
-
-**Description**:
-1. {step}
-2. {step}
-
-**Acceptance Criteria**:
-- [ ] {criterion}
-
----
-
-## Completed
-
-### Task {N}: {Title}
-
-**Status**: ✅ Done | **Completed**: {YYYY-MM-DD}
-- [x] {item}
+## 已完成
+- [x] 任务
 ```
 
-### 5. pitfalls.md
+## 5. pitfalls.md — 踩坑记录
 
 ```markdown
-# Pitfalls
+# 踩坑记录
 
-> **Not recorded = will happen again.**
+> 遇坑不记＝还会再踩。
 
-### {YYYY-MM-DD} | {Author} | {Problem}
-
-**Problem**: {what happened}
-**Root Cause**: {why it happened}
-**Fix**: {how it was fixed}
-**Prevention**:
-- {step}
-- {step}
+## 日期 | 执行人 | 标题
+**问题**: 现象
+**根因**: 为什么
+**解决**: 怎么修
+**预防**: 如何避免
 ```
 
-### 6. standards.md
+## 6. standards.md — 操作规范
 
 ```markdown
-# Standards
+# 操作规范
 
-> Rules the project runs on. New agents must read this first.
+## 路径规范
+- 不硬编码绝对路径
 
-## {Category}
+## 编码规范
+- .bat → ASCII + CRLF + 无BOM
+- .sh/.command → UTF-8 + LF
 
-| Rule | Description |
-|------|-------------|
-| {rule} | {explanation} |
+## 磁盘同步
+- book 工作，AIWORK 存档
 
----
+## 备份规范
 
-### Mandatory: Backup & Sync
+| 原则 | 说明 |
+|------|------|
+| 分盘放置 | 工作盘和备份盘是不同物理设备 |
+| 3-2-1 原则 | 3 副本、2 介质、1 异地 |
+| 只写不改 | 备份盘只写不改 |
 
-| Principle | Description |
-|-----------|-------------|
-| Separate drives | Work and backup must be **different physical devices** |
-| 3-2-1 rule | 3 copies, 2 media types, 1 offsite |
-| Write-only backup | Backup drive is append-only, no edits |
-
-**When to back up:**
-
-| Scenario | Required |
-|----------|:--------:|
-| After every code/doc change | ✅ |
-| Before release/packaging | ✅ |
-| Before deleting anything | ✅ |
-| Before format/reinstall | ✅ |
-| Daily routine | ⏰ |
-| Before testing new tools | ✅ |
-| Before major upgrade | ✅ |
-| Before database operations | ✅ |
-
----
-
-### Common Categories (fill as needed)
-
-#### Path conventions
-- Boot scripts use `SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"` or `%~dp0`
-- No hardcoded absolute paths
-
-#### Git commit format
-- `feat:` — new feature
-- `fix:` — bug fix
-- `refactor:` — code refactor
-- `docs:` — documentation
-- `chore:` — maintenance
+| 场景 | 必备份 |
+|------|:------:|
+| 每次改代码后 | ✅ |
+| 发布前 | ✅ |
+| 删除任何文件前 | ✅ |
+| 格式化前 | ✅ |
+| 数据库操作前 | ✅ |
 ```
 
-### 7. report.md
+## 7. report.md — 项目报告
 
 ```markdown
-# {Project Name} — Report
+# {项目名} — 报告
 
-> Generated: {YYYY-MM-DD}
-> By: {Author}
+## 概况
+| 项目 | 内容 |
+|------|------|
+| 名 | {name} |
+| 状态 | 开发/维护/完结 |
+| 代码量 | {lines} |
 
-## Overview
+## 进度
+**总体**: {xx%}
 
-| Item | Value |
-|------|-------|
-| Name | {Project Name} |
-| Status | Dev / Maintenance / Done |
-| Code size | {lines / files} |
-
-## Team
-
-| Role | Person | Load |
-|------|--------|:----:|
-| {role} | {name} | {xx%} |
-
-## Progress
-
-**Overall: {xx%}**
-
-| Module | Progress | Notes |
-|--------|:--------:|-------|
-| {module} | {xx%} | {notes} |
-
-## TODOs
-
-| Pri | Item | Owner | ETA |
-|-----|------|-------|-----|
-| P0 | {item} | {name} | {date} |
-
-## Tech Debt
-
-| Issue | Impact | Fix by |
-|-------|--------|--------|
-| {issue} | {impact} | {date} |
+## 技术债务
+- {issue}
 ```
 
 ---
 
-## Agent Operation Rules
+# Agent 操作守则
 
-**Any agent using this skill must follow these rules:**
+**使用此 skill 的 Agent 必须遵守：**
 
-### Entering a Project
+### 进入项目
 
-1. Look for the 7 standard files: `ENTRY.md`, `PREFLIGHT.md`, `work_log.md`, `tasks.md`, `pitfalls.md`, `standards.md`, `report.md`
-2. If they exist → read `ENTRY.md`, then complete PREFLIGHT check-in
-3. If they **don't exist** → **create them immediately** using the templates above
-4. If no docs at all → `ls` the directory, then create the 7 files
+1. 查 7 文件：ENTRY.md / work_log.md / pitfalls.md / tasks.md / standards.md / report.md / README.md
+2. 存在 → 读 ENTRY.md，完成 PREFLIGHT 打卡
+3. **不存在 → 立即创建**，用上面的模板
+4. 无文档体系 → ls 目录，然后创建 7 文件
 
-### During Operations
+### 执行中
 
-- **Log every step** → update work_log.md
-- **Log every pitfall** → write to pitfalls.md
-- **Track tasks** → update tasks.md
-- **Follow standards** → adhere to standards.md
+- **做→记→更新→继续** — 活干了不记=没干完
+- **遇坑必记** — 现象+根因+解决+预防
+- **一次只改一个版本** — 多 SKU 逐一处理
 
-### Self-Configuration
+### Agent 自配置
 
-When assigned to a project long-term, add this to your `SOUL.md` after the `## My Role` section:
+长期参与一个工程时，在自身 SOUL.md 的 `## 我的角色` 后插入：
 
 ```markdown
-## Engineering Operation Rules
+## 工程新建与参与守则
 
-Before modifying any project, read its:
-1. ENTRY.md
-2. work_log.md
-3. tasks.md
-4. standards.md
+新建项目或参与任何项目时，必须先检查根目录是否存在以下 7 个标配文件：
+- ENTRY.md
+- work_log.md
+- pitfalls.md
+- tasks.md
+- standards.md
+- report.md
+- README.md
 
-> Projects have PREFLIGHT.md as their gate. Check in before you start.
+缺少任何文件 → 立即创建，不得跳过。
 ```
 
 ---
 
-## Rules Summary
+# 规则总览
 
-1. Enter any project → find ENTRY.md or README.md first
-2. PREFLIGHT.md in project root = hard gate, must check in
-3. ENTRY.md must have a warning pointing to PREFLIGHT.md
-4. Agents write operation rules into own SOUL.md
-5. Main agent also writes into AGENTS.md
-6. **Create if missing** — any project without the 7-file system gets created immediately
-7. Log every push: work_log.md, pitfalls.md, tasks.md
-8. Standards on demand — only when needed
-9. README is the outer door
-10. report.md is optional for small projects
+1. 进入任何工程 → 先找 ENTRY.md 或 README.md
+2. PREFLIGHT.md 是硬锁门，必须打卡
+3. ENTRY.md 必须有 ⚠️ 指向 PREFLIGHT.md
+4. Agent 把守则写入自身 SOUL.md
+5. 主 Agent 同时写入 AGENTS.md
+6. **缺则创建** — 无 7 文件体系的工程一律创建
+7. 每次推动记录：work_log.md / pitfalls.md / tasks.md
+8. 规范按需创建
+9. README 是第一道门
+10. report.md 小项目可选
