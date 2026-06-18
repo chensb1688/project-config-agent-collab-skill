@@ -606,10 +606,10 @@ If they have README.md / ENTRY.md, read them first. Otherwise `ls` the directory
 
 Whether it's a new or existing project, main or side project:
 
-1. Find `ENTRY.md` and read it (fallback: read `README.md`)
-2. If `PREFLIGHT.md` exists in the project root, complete the check-in requirements
-3. If no PREFLIGHT.md: default to reading work_log → tasks → standards before touching code
-4. If no documentation system at all: `ls` the directory structure first
+1. Look for the 7 standard files: `ENTRY.md`, `PREFLIGHT.md`, `work_log.md`, `tasks.md`, `pitfalls.md`, `standards.md`, `report.md`
+2. If they exist: read `ENTRY.md` first (fallback: `README.md`), then complete PREFLIGHT check-in
+3. If they **don't exist**: **create them immediately** using the templates in this skill. Every project needs the full 7-file system.
+4. If no documentation system at all: `ls` the directory structure first, then create the 7 files.
 
 ### During Operations
 
@@ -666,10 +666,11 @@ Start a new session and confirm the operation rules are visible in `SOUL.md`.
 4. **Agent self-config** — Write operation rules into own SOUL.md, loaded on every session start
 5. **Main agent extra** — Also write into AGENTS.md
 6. **Read first** — ENTRY.md is the first stop for newcomers
-7. **Log every push** — Update work_log.md, pitfalls.md, tasks.md
-8. **Standards on demand** — Only create standards.md when needed (DB/Git/API conventions)
-9. **README = overview** — Keep detailed content in separate files; README is the outer door
-10. **report.md as optional** — Generate for projects with multiple people/agents; skip for personal projects
+7. **Create if missing** — Any project without the 7-file system gets created immediately
+8. **Log every push** — Update work_log.md, pitfalls.md, tasks.md
+9. **Standards on demand** — Only create standards.md when needed (DB/Git/API conventions)
+10. **README = overview** — Keep detailed content in separate files; README is the outer door
+11. **report.md as optional** — Generate for projects with multiple people/agents; skip for personal projects
 
 # Reference / 参考案例
 
